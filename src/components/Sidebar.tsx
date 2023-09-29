@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import WaitlistModal from './WaitlistModal';
 
 type Props = {
   children: ReactNode;
@@ -11,10 +12,14 @@ export const Sidebar = ({ children }: Props) => {
       <div className="">
         <hr />
         <div className="p-4">
-          <p className="text-center mb-1 text-sm">Create your survey?</p>
-          <button className="border-[#6841C6] text-[#6841C6] hover:text-[#5a37ac] hover:border-[#5a37ac] border-2 w-full text-center p-2 rounded-md">
-            Join waitlist
-          </button>
+          <p className="text-center mb-1 text-sm text-[#7B7E7D]">
+            Create your survey?
+          </p>
+          <WaitlistModal
+            buttonProps={{
+              text: 'Join waitlist',
+            }}
+          />
         </div>
       </div>
     </div>

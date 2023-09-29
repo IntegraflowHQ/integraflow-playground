@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   return (
     <DashboardProvider>
-      <main className={`flex ${inter.className}`}>
+      <main className={`flex w-screen h-screen ${inter.className}`}>
         <Sidebar>
           <HomeSidebar />
         </Sidebar>

@@ -8,9 +8,10 @@ export const CardsContainer = () => {
   const router = useRouter();
 
   return (
-    <div className="flex-1 p-6">
+    <div className="flex-1 p-6 h-screen overflow-y-auto">
       <div className="text-center m-8">
         <h1 className="text-3xl">Templates Library</h1>
+        <p></p>
       </div>
 
       <h1 className="capitalize font-semibold">{activeCategory}</h1>
