@@ -6,17 +6,3 @@
   left: 350px;
   top: 0;
 }
-/* #integraflow-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  border: 6px solid rebeccapurple;
-  left: 350px;
-  width: calc(100% - 350px);
-  height: 100vh;
-  background-image: url('/hero-section.png');
-  background-position: center;
-  filter: blur(10px);
-  z-index: 0;
-  opacity: 0.8;
-} */
