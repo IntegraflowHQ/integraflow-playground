@@ -234,7 +234,7 @@ export const surveyTemplates: Template[] = [
   {
     name: 'Onboarding Segmentation',
     category: 'Customer Success',
-    subcategory: ['Customer Satisfaction'],
+    subcategory: [],
     description: 'Learn more about who signed up to your product and why.',
     survey: {
       id: 2,

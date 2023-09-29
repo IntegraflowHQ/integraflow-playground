@@ -1,88 +1,22 @@
-import React, { useState } from 'react';
-import { surveyCategories } from '@/utils/templates';
-import { useDashboard } from '@/context';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import React, { ReactNode } from 'react';
 
-export const Sidebar = () => {
-  const { filterCategories, templates, activeCategory } = useDashboard();
+type Props = {
+  children: ReactNode;
+};
 
-  const [showSubcategories, setShowSubcategories] = useState(false);
-
+export const Sidebar = ({ children }: Props) => {
   return (
-    <div className="w-[300px] border-r">
-      <h1 className="text-3xl p-6">Playground</h1>
-      <ul className="px-6 space-y-4">
-        <li
-          onClick={() => {
-            filterCategories({
-              category: 'all categories',
-            });
-          }}
-        >
-          <button className="bg-[#eee] w-full text-left p-2 rounded-md hover:bg-[#d9cff2]">
-            All Surveys
+    <div className="w-full max-w-[350px] flex flex-col justify-between border-r h-screen border">
+      <div>{children}</div>
+      <div className="">
+        <hr />
+        <div className="p-4">
+          <p className="text-center mb-1 text-sm">Create your survey?</p>
+          <button className="border-[#6841C6] text-[#6841C6] hover:text-[#5a37ac] hover:border-[#5a37ac] border-2 w-full text-center p-2 rounded-md">
+            Join waitlist
           </button>
-        </li>
-
-        {surveyCategories.map((category) => {
-          return (
-            <div key={category.name}>
-              <li
-                onClick={() =>
-                  filterCategories({
-                    category: category.name,
-                  })
-                }
-                className="mb-3"
-              >
-                <button className="flex justify-between items-center bg-[#eee] w-full text-left p-2 rounded-md hover:bg-[#d9cff2]">
-                  <span
-                    className="w-full"
-                    onClick={() => setShowSubcategories(true)}
-                  >
-                    {category.name}
-                  </span>
-                  <span
-                    onClick={() => setShowSubcategories(!showSubcategories)}
-                    className="p-1 bg-[#dfd6f3] rounded"
-                  >
-                    {showSubcategories && activeCategory === category.name ? (
-                      <ChevronUp size={19} />
-                    ) : (
-                      <ChevronDown size={19} />
-                    )}
-                  </span>
-                </button>
-              </li>
-
-              {showSubcategories && (
-                <ul
-                  className={` ${
-                    activeCategory === category.name ? 'block' : 'hidden'
-                  } ml-5`}
-                >
-                  {category.subcategories.map((subcategory) => {
-                    return (
-                      <button
-                        className="block p-1.5 pl-0"
-                        key={subcategory}
-                        onClick={() =>
-                          filterCategories({
-                            category: category.name,
-                            subcategory: subcategory,
-                          })
-                        }
-                      >
-                        {subcategory}
-                      </button>
-                    );
-                  })}
-                </ul>
-              )}
-            </div>
-          );
-        })}
-      </ul>
+        </div>
+      </div>
     </div>
   );
 };

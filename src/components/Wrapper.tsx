@@ -2,15 +2,13 @@ import React from 'react';
 
 export const Wrapper = () => {
   return (
-    <div className="bg-[#eee] border w-full min-h-screen">
-      <style>
-        {`
-          #integraflow-container  #integraflow-content-wrapper {
-          left:350px;
-          background-color:#eee;
-        }
-    `}
-      </style>
-    </div>
+    <div
+      className="h-screen w-full"
+      style={{
+        backgroundImage: `url('/hero-section.png')`,
+        backgroundPosition: 'center',
+        filter: 'blur(20px)',
+      }}
+    ></div>
   );
 };
