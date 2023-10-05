@@ -25,12 +25,13 @@ const themeOptions: Theme = {
 };
 
 export const TemplateSidebar = () => {
-  const { setTheme, activeTemplate, toggleProgressbar, changePlacement } =
+  const { setTheme, activeTemplate, toggleProgressbar, changePlacement, updateSubmitText } =
     useDashboard();
   const [showProgressBar, setShowProgressBar] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [openTheme, setOpenTheme] = useState(false);
   const [openPlacement, setOpenPlacement] = useState(false);
+  const [submitText, setSubmitText] = useState<string|undefined>(undefined)
 
   const handleProgressBar = () => {
     setShowProgressBar(!showProgressBar);
@@ -191,6 +192,15 @@ export const TemplateSidebar = () => {
                     }`}
                   ></div>
                 </div>
+              </div>
+              <div className='space-x-1'>
+                <label htmlFor="submit_text"> Submit Text:
+                </label>
+                  <input type="text" name='submit_text' className='border p-1' value={submitText} 
+                  onChange={(e)=>{
+                    setSubmitText(e.target.value)
+                    updateSubmitText(e.target.value)
+                  }} />
               </div>
             </ul>
           </>

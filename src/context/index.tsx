@@ -13,6 +13,7 @@ const DashboardContext = createContext<DashboardContext>({
   setTheme: (option: string, value: string) => {},
   toggleProgressbar: (value: boolean) => {},
   changePlacement: (value: PlacementType) => {},
+  updateSubmitText: (value: string|undefined) => {},
 });
 
 function useDashboardContextFactory() {
@@ -131,6 +132,14 @@ function useDashboardContextFactory() {
     setActiveTemplate(updatedTemplate);
   };
 
+  const updateSubmitText=(value:string| undefined)=>{
+     if (!activeTemplate) return;
+
+    const updatedTemplate = { ...activeTemplate };
+    updatedTemplate.survey.settings.submitText = value;
+    setActiveTemplate(updatedTemplate);
+  }
+
   return {
     filterCategories,
     activeCategory,
@@ -139,6 +148,7 @@ function useDashboardContextFactory() {
     activeTemplate,
     toggleProgressbar,
     changePlacement,
+    updateSubmitText
   };
 }
 

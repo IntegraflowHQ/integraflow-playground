@@ -22,7 +22,7 @@ export const CardsContainer = () => {
             <li
               key={survey.survey.id}
               onClick={() => router.push(`templates?id=${survey.survey.id}`)}
-              className="flex flex-col cursor-pointer w-full lg:w-[45%] xl:w-[30%] border rounded-md h-[15rem] hover:border-[#898a8a]"
+              className="flex flex-col cursor-pointer w-full lg:w-[45%] xl:w-[30%] border rounded-md h-[15rem] hover:border-[#898a8a] transition-all ease-in-out duration-1000"
             >
               <p className="bg-[#6941C6] h-[4rem]  rounded-tl-md rounded-tr-md text-white p-3">
                 {survey.name}
