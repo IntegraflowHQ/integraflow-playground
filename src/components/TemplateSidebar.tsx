@@ -1,37 +1,44 @@
-import { useDashboard } from '@/context';
-import { ArrowLeftCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import React, { useState } from 'react';
-import ColorPicker from './ColorPicker';
-import { PlacementTypes } from '@/types';
-import { Theme } from '@integraflow/web';
+import { useDashboard } from "@/context";
+import { ArrowLeftCircle, ChevronDown, ChevronUp } from "lucide-react";
+import React, { useState } from "react";
+import ColorPicker from "./ColorPicker";
+import { PlacementTypes } from "@/types";
+import { Theme } from "@integraflow/web";
 
-import * as Popover from '@radix-ui/react-popover';
-import Link from 'next/link';
+import * as Popover from "@radix-ui/react-popover";
+import Link from "next/link";
 
 const placementOptions = [
-  { id: 1, value: PlacementTypes.BOTTOM_LEFT, label: 'Bottom left' },
-  { id: 2, value: PlacementTypes.BOTTOM_RIGHT, label: 'Bottom right' },
-  { id: 3, value: PlacementTypes.CENTER, label: 'Center' },
-  { id: 4, value: PlacementTypes.TOP_LEFT, label: 'Top left' },
-  { id: 5, value: PlacementTypes.TOP_RIGHT, label: 'Top right' },
+  { id: 1, value: PlacementTypes.BOTTOM_LEFT, label: "Bottom left" },
+  { id: 2, value: PlacementTypes.BOTTOM_RIGHT, label: "Bottom right" },
+  { id: 3, value: PlacementTypes.CENTER, label: "Center" },
+  { id: 4, value: PlacementTypes.TOP_LEFT, label: "Top left" },
+  { id: 5, value: PlacementTypes.TOP_RIGHT, label: "Top right" },
 ];
 
 const themeOptions: Theme = {
-  question: '#050505',
-  answer: '#E6E6E6',
-  button: '#050505',
-  background: '#ffffff',
-  progressBar: '#050505',
+  question: "#050505",
+  answer: "#E6E6E6",
+  button: "#050505",
+  background: "#ffffff",
+  progressBar: "#050505",
 };
 
 export const TemplateSidebar = () => {
-  const { setTheme, activeTemplate, toggleProgressbar, changePlacement, updateSubmitText } =
-    useDashboard();
+  const {
+    setTheme,
+    activeTemplate,
+    toggleProgressbar,
+    changePlacement,
+    updateSubmitText,
+  } = useDashboard();
   const [showProgressBar, setShowProgressBar] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [openTheme, setOpenTheme] = useState(false);
   const [openPlacement, setOpenPlacement] = useState(false);
-  const [submitText, setSubmitText] = useState<string|undefined>(undefined)
+  const [submitText, setSubmitText] = useState<string | undefined>(
+    activeTemplate?.survey.settings.submitText || "Submit"
+  );
 
   const handleProgressBar = () => {
     setShowProgressBar(!showProgressBar);
@@ -40,7 +47,7 @@ export const TemplateSidebar = () => {
 
   return (
     <div className="p-6 space-y-4">
-      <Link href={'/'} className="flex space-x-3">
+      <Link href={"/"} className="flex space-x-3">
         <span>
           <ArrowLeftCircle />
         </span>
@@ -55,9 +62,9 @@ export const TemplateSidebar = () => {
             activeTemplate?.objectives.map((objective) => {
               if (!objective) return;
               const formattedObjective = objective
-                .split('_')
+                .split("_")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ');
+                .join(" ");
 
               return <li key={objective}>{formattedObjective}</li>;
             })}
@@ -102,9 +109,9 @@ export const TemplateSidebar = () => {
                         return (
                           <li key={optName} className="flex mb-3 items-center">
                             <span className="capitalize">
-                              {optName !== 'progressBar'
+                              {optName !== "progressBar"
                                 ? optName
-                                : 'progress bar'}
+                                : "progress bar"}
                               :
                             </span>
                             <span>
@@ -182,25 +189,30 @@ export const TemplateSidebar = () => {
                 <span className="p-1">Show Progress Bar</span>
                 <div
                   className={`w-12 h-7 bg-[#6841C6] rounded-full p-1 transition-transform duration-200 ease-in-out ${
-                    showProgressBar ? 'bg-[#6841C6]' : ''
+                    showProgressBar ? "bg-[#6841C6]" : "bg-[#eee]"
                   }`}
                   onClick={handleProgressBar}
                 >
                   <div
                     className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out ${
-                      showProgressBar ? 'translate-x-5' : ''
+                      showProgressBar ? "translate-x-5" : ""
                     }`}
                   ></div>
                 </div>
               </div>
-              <div className='space-x-1'>
-                <label htmlFor="submit_text"> Submit Text:
-                </label>
-                  <input type="text" name='submit_text' className='border p-1' value={submitText} 
-                  onChange={(e)=>{
-                    setSubmitText(e.target.value)
-                    updateSubmitText(e.target.value)
-                  }} />
+              <div className="space-x-1">
+                <label htmlFor="submit_text">Submit Text:</label>
+                <input
+                  type="text"
+                  name="submit_text"
+                  className="border p-1 focus:outline-none rounded-md focus:border-[#6841C6]"
+                  value={submitText}
+                  onChange={(e) => {
+                    setSubmitText(e.target.value);
+                    updateSubmitText(e.target.value);
+                  }}
+                  placeholder="Enter your text"
+                />
               </div>
             </ul>
           </>
