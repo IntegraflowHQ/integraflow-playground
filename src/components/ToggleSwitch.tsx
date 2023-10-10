@@ -7,7 +7,7 @@ type ToggleSwitchProps = {
 };
 
 const ToggleSwitch = ({
-  initialChecked = false,
+  initialChecked = true,
   onChange,
   text,
 }: ToggleSwitchProps) => {

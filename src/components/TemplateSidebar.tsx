@@ -254,6 +254,21 @@ export const TemplateSidebar = ({
                   </Popover.Portal>
                 </Popover.Root>
               </li>
+              <div className="space-x-1">
+                <label htmlFor="submit_text">Submit Text:</label>
+                <input
+                  type="text"
+                  name="submit_text"
+                  className="border p-1 focus:outline-none rounded-md focus:border-[#6841C6]"
+                  value={submitText}
+                  onChange={(e) => {
+                    setSubmitText(e.target.value);
+                    updateSubmitText(e.target.value);
+                  }}
+                  placeholder="Enter your text"
+                />
+              </div>
+
               <ToggleSwitch
                 onChange={() => {
                   setShowProgressBar(!showProgressBar);
@@ -275,20 +290,6 @@ export const TemplateSidebar = ({
                 }}
                 text="Show Close"
               />
-              <div className="space-x-1">
-                <label htmlFor="submit_text">Submit Text:</label>
-                <input
-                  type="text"
-                  name="submit_text"
-                  className="border p-1 focus:outline-none rounded-md focus:border-[#6841C6]"
-                  value={submitText}
-                  onChange={(e) => {
-                    setSubmitText(e.target.value);
-                    updateSubmitText(e.target.value);
-                  }}
-                  placeholder="Enter your text"
-                />
-              </div>
             </ul>
           </>
         )}
