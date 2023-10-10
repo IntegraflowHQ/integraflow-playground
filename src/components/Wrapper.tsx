@@ -15,3 +15,5 @@ export const Wrapper = forwardRef((_, ref: Ref<HTMLIFrameElement>) => {
     />
   );
 });
+
+Wrapper.displayName = "Wrapper";
