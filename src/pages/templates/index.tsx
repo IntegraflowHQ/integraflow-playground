@@ -31,19 +31,18 @@ const Templates = () => {
     getActiveTemplate();
   }, [id]);
 
-  const sendSurvey = useCallback(() => {
-    if (activeTemplate?.survey && iframe.current) {
-      iframe.current?.contentWindow?.postMessage(
-        {
-          type: "survey",
-          survey: activeTemplate.survey,
-        },
-        "*"
-      );
-    }
-  }, [activeTemplate, iframe]);
-
   useEffect(() => {
+    const sendSurvey = () => {
+      if (activeTemplate?.survey && iframe.current) {
+        iframe.current?.contentWindow?.postMessage(
+          {
+            type: "survey",
+            survey: activeTemplate.survey,
+          },
+          "*"
+        );
+      }
+    };
     sendSurvey();
   }, [activeTemplate, iframe, iframeReady]);
 

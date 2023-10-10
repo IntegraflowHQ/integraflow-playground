@@ -109,15 +109,14 @@ export const TemplateSidebar = ({
     setActiveTemplate(updatedTemplate);
   };
 
-  const getTemplateDetails = () => {
-    if (!id) return;
-    const survey = librarySurveys.find((item) => {
-      return item.id === (id as string);
-    });
-    setTemplateDetails(survey);
-  };
-
   useEffect(() => {
+    const getTemplateDetails = () => {
+      if (!id) return;
+      const survey = librarySurveys.find((item) => {
+        return item.id === (id as string);
+      });
+      setTemplateDetails(survey);
+    };
     getTemplateDetails();
   }, [id]);
 
@@ -136,7 +135,11 @@ export const TemplateSidebar = ({
         <ul className="list-disc pl-6 space-y-2">
           <li>{templateDetails?.points_count} questions</li>
           {templateDetails?.library_quick_tips.map((tip) => {
-            return <li className="text-base">{tip}</li>;
+            return (
+              <li key={tip} className="text-base">
+                {tip}
+              </li>
+            );
           })}
         </ul>
       </div>
