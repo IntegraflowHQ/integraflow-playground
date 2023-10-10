@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 #integraflow-container #integraflow-content-wrapper {
-  left: 350px;
-  top: 0;
+  /* left: 250px ; */
+  /* margin-left: 350px; */
+  /* border: 6px solid saddlebrown;  */
+}
+#surveyFrame {
+  background-color: #f0f0f0; /* Set your desired background color */
 }
