@@ -109,10 +109,10 @@
   resolved "https://registry.npmjs.org/@icons/material/-/material-0.2.4.tgz"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@integraflow/web@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@integraflow/web/-/web-1.0.0.tgz"
-  integrity sha512-Mllu3jnWo7ukU6oXnDYTQWeb7XJV7t6yfAVdPVGZ7ZSKNflkgeKJvYmJGzMNXAnxCTDlAuH+1QITvxwlcf8h3Q==
+"@integraflow/web@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@integraflow/web/-/web-2.0.0.tgz#66ea7d106fe426e3b9d7a8eff914912e9ebb0e56"
+  integrity sha512-/pLXW0yflklUSI9QwgavzMoHgnjV/4RLKxk8xxtodmkPRpLogwXq1+jFJsRTRRRK2bxww/+CyR4ODcpcs2U1qw==
   dependencies:
     lucide-preact "^0.268.0"
     preact "10.16.0"
@@ -459,15 +459,15 @@
 
 "@types/lodash.memoize@^4.1.7":
   version "4.1.7"
-  resolved "https://registry.npmjs.org/@types/lodash.memoize/-/lodash.memoize-4.1.7.tgz"
+  resolved "https://registry.yarnpkg.com/@types/lodash.memoize/-/lodash.memoize-4.1.7.tgz#aff94ab32813c557cbc1104e127030e3d60a3b27"
   integrity sha512-lGN7WeO4vO6sICVpf041Q7BX/9k1Y24Zo3FY0aUezr1QlKznpjzsDk3T3wvH8ofYzoK0QupN9TWcFAFZlyPwQQ==
   dependencies:
     "@types/lodash" "*"
 
 "@types/lodash@*":
-  version "4.14.198"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.198.tgz"
-  integrity sha512-trNJ/vtMZYMLhfN45uLq4ShQSw0/S7xCTLLVM+WM1rmFpba/VS42jVUgaO3w/NOLiWR/09lnYk0yMaA/atdIsg==
+  version "4.14.199"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.199.tgz#c3edb5650149d847a277a8961a7ad360c474e9bf"
+  integrity sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==
 
 "@types/node@20.6.0":
   version "20.6.0"
@@ -569,7 +569,7 @@
 
 "@wojtekmaj/date-utils@^1.1.3":
   version "1.5.0"
-  resolved "https://registry.npmjs.org/@wojtekmaj/date-utils/-/date-utils-1.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/@wojtekmaj/date-utils/-/date-utils-1.5.0.tgz#6e8e5be857f3b66d0a99876e4c2295f1009a7560"
   integrity sha512-0mq88lCND6QiffnSDWp+TbOxzJSwy2V/3XN+HwWZ7S2n19QAgR5dy5hRVhlECXvQIq2r+VcblBu+S9V+yMcxXw==
 
 acorn-jsx@^5.3.2:
@@ -856,7 +856,7 @@ client-only@0.0.1:
 
 clsx@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/clsx/-/clsx-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.0.0.tgz#12658f3fd98fafe62075595a5c30e43d18f3d00b"
   integrity sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==
 
 color-convert@^2.0.1:
@@ -939,7 +939,7 @@ dequal@^2.0.3:
 
 detect-element-overflow@^1.4.0:
   version "1.4.1"
-  resolved "https://registry.npmjs.org/detect-element-overflow/-/detect-element-overflow-1.4.1.tgz"
+  resolved "https://registry.yarnpkg.com/detect-element-overflow/-/detect-element-overflow-1.4.1.tgz#fc2ff7eb04c03090b289abe45a447b2c78b983b6"
   integrity sha512-6a1wXl5+KbnXhO5FWgKq+omp8km42QLWgd1UYj99SS6o/aYBuTPU/ByI9dLgPYi9aes5TAg62IRoRKpqrDb0PQ==
 
 detect-node-es@^1.1.0:
@@ -1444,7 +1444,7 @@ get-tsconfig@^4.5.0:
 
 get-user-locale@^2.2.1:
   version "2.3.0"
-  resolved "https://registry.npmjs.org/get-user-locale/-/get-user-locale-2.3.0.tgz"
+  resolved "https://registry.yarnpkg.com/get-user-locale/-/get-user-locale-2.3.0.tgz#7656315a963a824048883f7dab4d7dc74773d1e0"
   integrity sha512-I3rQvAUwu2nauRD9YyQBSXVFJZixNouwA+eZld51Sn4Pn0N1qFbgcgOi/nPigJPQlNY519mT95fiSPRgflQiTA==
   dependencies:
     "@types/lodash.memoize" "^4.1.7"
@@ -1932,7 +1932,7 @@ lodash-es@^4.17.15:
 
 lodash.memoize@^4.1.1:
   version "4.1.2"
-  resolved "https://registry.npmjs.org/lodash.memoize/-/lodash.memoize-4.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==
 
 lodash.merge@^4.6.2:
@@ -1961,7 +1961,7 @@ lru-cache@^6.0.0:
 
 lucide-preact@^0.268.0:
   version "0.268.0"
-  resolved "https://registry.npmjs.org/lucide-preact/-/lucide-preact-0.268.0.tgz"
+  resolved "https://registry.yarnpkg.com/lucide-preact/-/lucide-preact-0.268.0.tgz#e92102682f4d884b030df3aa7fad2add17c26c10"
   integrity sha512-Is2g4mIlGyy5yScsLv8MPHAlHF8g8Ff0r7LbEUnTRLnpcltMPc2wKgeAZsedxAjRap94Jlnb+UU2TMaUNDEiKw==
 
 lucide-react@^0.277.0:
@@ -1971,7 +1971,7 @@ lucide-react@^0.277.0:
 
 make-event-props@^1.6.0:
   version "1.6.1"
-  resolved "https://registry.npmjs.org/make-event-props/-/make-event-props-1.6.1.tgz"
+  resolved "https://registry.yarnpkg.com/make-event-props/-/make-event-props-1.6.1.tgz#1d587017c3f1f3b42719b775af93d5253656ccdd"
   integrity sha512-JhvWq/iz1BvlmnPvLJjXv+xnMPJZuychrDC68V+yCGQJn5chcA8rLGKo5EP1XwIKVrigSXKLmbeXAGkf36wdCQ==
 
 material-colors@^1.2.1:
@@ -2301,7 +2301,7 @@ postcss@8.4.29, postcss@^8.4.23:
 
 preact@10.16.0:
   version "10.16.0"
-  resolved "https://registry.npmjs.org/preact/-/preact-10.16.0.tgz"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.16.0.tgz#68a06d70b191b8a313ea722d61e09c6b2a79a37e"
   integrity sha512-XTSj3dJ4roKIC93pald6rWuB2qQJO9gO2iLLyTe87MrjQN+HklueLsmskbywEWqCHlclgz3/M4YLL2iBr9UmMA==
 
 prelude-ls@^1.2.1:
@@ -2330,7 +2330,7 @@ queue-microtask@^1.2.2:
 
 react-calendar@^4.6.0:
   version "4.6.0"
-  resolved "https://registry.npmjs.org/react-calendar/-/react-calendar-4.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-4.6.0.tgz#2410895ba5f257f931815ffa74af06ff7a56d2e3"
   integrity sha512-GJ6ZipKMQmlK666t+0hgmecu6WHydEnMWJjKdEkUxW6F471hiM5DkbWXkfr8wlAg9tc9feNCBhXw3SqsPOm01A==
   dependencies:
     "@wojtekmaj/date-utils" "^1.1.3"
@@ -2353,9 +2353,9 @@ react-color@^2.19.3:
     tinycolor2 "^1.4.1"
 
 react-date-picker@^10.5.0:
-  version "10.5.0"
-  resolved "https://registry.npmjs.org/react-date-picker/-/react-date-picker-10.5.0.tgz"
-  integrity sha512-A0LsM7M9iaOj+ALFOum5xdKlE6GdmKQKrctKJiOrU9lAeX+adkBqjHMZItYiO2OmWoHhRQm8iGVJCMA2SV8+IA==
+  version "10.5.1"
+  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-10.5.1.tgz#20fb38937ffe3a55fb5519b63b493c5265571ccc"
+  integrity sha512-Ipsq0NorPqXRuZQsqWhdd86RlSbZbnhpiH0aEMzJo6Rs2YA7eALZKB5lrl9stSjpDriDJH0dyh2kdWQmkBhNFg==
   dependencies:
     "@wojtekmaj/date-utils" "^1.1.3"
     clsx "^2.0.0"
@@ -2376,7 +2376,7 @@ react-dom@^18.2.0:
 
 react-fit@^1.7.0:
   version "1.7.0"
-  resolved "https://registry.npmjs.org/react-fit/-/react-fit-1.7.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-fit/-/react-fit-1.7.0.tgz#0d0c5614cff691028357f748efc7a6e853e3c654"
   integrity sha512-mp1zCayzmCXrTYoSZjBGaN/VkYZ+QwMXm52Jh33au+bgrLoC7sn2XND1TOh2VZ/vqZ2MgpPjGcygCQ+7p514cQ==
   dependencies:
     detect-element-overflow "^1.4.0"
@@ -2394,11 +2394,6 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-loading-skeleton@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.3.1.tgz#cd6e3a626ee86c76a46c14e2379243f2f8834e1b"
-  integrity sha512-NilqqwMh2v9omN7LteiDloEVpFyMIa0VGqF+ukqp0ncVlYu1sKYbYGX9JEl+GtOT9TKsh04zCHAbavnQ2USldA==
 
 react-remove-scroll-bar@^2.3.3:
   version "2.3.4"
@@ -2747,7 +2742,7 @@ thenify-all@^1.0.0:
 
 tiny-warning@^1.0.0:
   version "1.0.3"
-  resolved "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
   integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
 
 tinycolor2@^1.4.1:
@@ -2863,7 +2858,7 @@ update-browserslist-db@^1.0.11:
 
 update-input-width@^1.4.0:
   version "1.4.1"
-  resolved "https://registry.npmjs.org/update-input-width/-/update-input-width-1.4.1.tgz"
+  resolved "https://registry.yarnpkg.com/update-input-width/-/update-input-width-1.4.1.tgz#94636ef786da0a33581091c57d3a3c66d9fdcbd2"
   integrity sha512-/FDlfTvxlEQ9+/duf5PoC1q0uYQd/nE4w7K7rVAAoW/QKKa4bdhccuPaWtfkrWEy2r08rzX6wlmCHeGL+vgJOw==
 
 uri-js@^4.2.2:
