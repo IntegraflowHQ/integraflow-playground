@@ -1,5 +1,3 @@
-import { newSurveys } from "./surveyCopies";
-
 export const surveyCategories = [
   {
     id: 1,
