@@ -1,5 +1,4 @@
 import { LibrarySurvey } from "@/types";
-import { newSurveys } from "./surveyCopies";
 
 export const librarySurveys: LibrarySurvey[] = [
   {
