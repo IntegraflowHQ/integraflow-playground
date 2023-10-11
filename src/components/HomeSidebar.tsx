@@ -4,6 +4,13 @@ import { surveyCategories } from "@/utils/surveyCategories";
 import { librarySurveys } from "@/utils/librarySurvey";
 import { LibrarySurvey } from "@/types";
 
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@radix-ui/react-accordion";
+
 type Props = {
   setLibrary: Dispatch<SetStateAction<LibrarySurvey[]>>;
   setActiveCategory: Dispatch<SetStateAction<string | undefined>>;
@@ -15,6 +22,10 @@ export const HomeSidebar = ({
   setActiveCategory,
   activeCategory,
 }: Props) => {
+  const [accordionValue, setAccordionValue] = useState<string | undefined>(
+    undefined
+  );
+
   const filterCategories = (options: {
     category: number | "all categories";
     subcategory?: number;
@@ -49,48 +60,53 @@ export const HomeSidebar = ({
   return (
     <>
       <h1 className="text-3xl p-6">Playground</h1>
-      <ul className="px-6 space-y-4">
-        <li onClick={() => filterCategories({ category: "all categories" })}>
-          <button className="flex justify-between items-center bg-[#eee] w-full text-left p-2 rounded-md hover:bg-[#d9cff2]">
-            <span className="w-full">All categories</span>
-          </button>
-        </li>
-        {surveyCategories.map((category) => {
-          return (
-            <div key={category.name}>
-              <li
-                onClick={() =>
-                  filterCategories({
-                    category: category.id,
-                  })
-                }
-                className="mb-3"
+      <div className="px-6 space-y-4">
+        <Accordion
+          value={accordionValue}
+          collapsible={true}
+          type="single"
+          onValueChange={(value) => setAccordionValue(value)}
+        >
+          <AccordionItem key="all" value="all categories">
+            <AccordionTrigger
+              className="category-trigger w-full mb-3"
+              onClick={() => filterCategories({ category: "all categories" })}
+            >
+              <div className="flex justify-between items-center bg-[#eee] w-full text-left p-2 rounded-md hover:bg-[#d9cff2]">
+                <span className="w-full">All categories</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="subcategory-content"></AccordionContent>
+          </AccordionItem>
+          {surveyCategories.map((category) => (
+            <AccordionItem key={category.id} value={`${category.id}`}>
+              <AccordionTrigger
+                className="category-trigger w-full mb-3"
+                onClick={() => filterCategories({ category: category.id })}
               >
-                <button className="flex justify-between items-center bg-[#eee] w-full text-left p-2 rounded-md hover:bg-[#d9cff2]">
+                <div className="flex justify-between items-center bg-[#eee] w-full text-left p-2 rounded-md hover:bg-[#d9cff2]">
                   <span className="w-full">{category.name}</span>
                   <span
-                    onClick={() => setShowSubcategories(!showSubcategories)}
+                    onClick={() => {
+                      setShowSubcategories(!showSubcategories);
+                      setAccordionValue(0);
+                    }}
                     className="p-1 bg-[#dfd6f3] rounded"
                   >
-                    {showSubcategories && activeCategory === category.name ? (
+                    {accordionValue === `${category.id}` ? (
                       <ChevronUp size={19} />
                     ) : (
                       <ChevronDown size={19} />
                     )}
                   </span>
-                </button>
-              </li>
-              {showSubcategories && (
-                <ul
-                  className={` ${
-                    activeCategory === category.name ? "block" : "hidden"
-                  } mx-3`}
-                >
-                  {category.subcategories.map((subcategory) => {
-                    return (
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="subcategory-content">
+                <ul>
+                  {category.subcategories.map((subcategory) => (
+                    <li key={subcategory.id}>
                       <button
                         className="flex text-[.9rem] justify-between w-full p-1.5"
-                        key={subcategory.name}
                         onClick={() =>
                           filterCategories({
                             category: category.id,
@@ -103,14 +119,14 @@ export const HomeSidebar = ({
                           {subcategory.count}
                         </span>
                       </button>
-                    );
-                  })}
+                    </li>
+                  ))}
                 </ul>
-              )}
-            </div>
-          );
-        })}
-      </ul>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </>
   );
 };
