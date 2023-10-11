@@ -89,7 +89,6 @@ export const HomeSidebar = ({
                   <span
                     onClick={() => {
                       setShowSubcategories(!showSubcategories);
-                      setAccordionValue(0);
                     }}
                     className="p-1 bg-[#dfd6f3] rounded"
                   >
