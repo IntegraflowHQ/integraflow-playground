@@ -1,5 +1,5 @@
 import Integraflow, { Survey } from "@integraflow/web";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const IntegraflowSurvey = () => {
   const [survey, setSurvey] = useState<Survey | undefined>(undefined);
@@ -26,6 +26,15 @@ const IntegraflowSurvey = () => {
     if (!survey) return;
     const integraflow = Integraflow.init({
       surveys: [survey],
+      onSurveyClosed: () => {
+        const timeoutId = setTimeout(() => {
+          integraflow.showSurvey(survey.id as string);
+        }, 3500);
+
+        return () => {
+          clearTimeout(timeoutId);
+        };
+      },
     });
 
     integraflow.showSurvey(survey.id as string);
