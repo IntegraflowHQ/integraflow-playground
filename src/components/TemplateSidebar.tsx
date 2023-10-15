@@ -38,7 +38,7 @@ export const TemplateSidebar = ({
   const router = useRouter();
   const id = router.query.id;
 
-  const [showSettings, setShowSettings] = useState(false);
+  const [showSettings, setShowSettings] = useState(true);
   const [openPlacement, setOpenPlacement] = useState(false);
   const [openTheme, setOpenTheme] = useState(false);
 
@@ -131,7 +131,7 @@ export const TemplateSidebar = ({
       <p className="text-3xl">{templateDetails?.name}</p>
 
       <div>
-        <p className="font-semibold">Objectives</p>
+        <p className="font-semibold">Features</p>
         <ul className="list-disc pl-6 space-y-2">
           <li>{templateDetails?.points_count} questions</li>
           {templateDetails?.library_quick_tips.map((tip) => {

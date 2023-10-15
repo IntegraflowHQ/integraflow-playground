@@ -1,47 +1,37 @@
-'use client';
-import * as Dialog from '@radix-ui/react-dialog';
-import Link from 'next/link';
-import { FormEvent, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
-import { Discord2, Instagram, LinkedIn, Twitter } from '../assets';
+"use client";
+import * as Dialog from "@radix-ui/react-dialog";
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { Discord2, Instagram, LinkedIn, Twitter } from "../assets";
 
 const socialLinks = [
   {
-    name: 'Twitter',
-    url: '#',
+    name: "Twitter",
+    url: "https://twitter.com/useintegraflow",
     icon: Twitter,
   },
   {
-    name: 'Instagram',
-    url: '#',
-    icon: Instagram,
-  },
-  {
-    name: 'LinkedIn',
-    url: '#',
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/company/useintegraflow",
     icon: LinkedIn,
-  },
-  {
-    name: 'Discord',
-    url: '#',
-    icon: Discord2,
   },
 ];
 
 const waitlistId = process.env.NEXT_PUBLIC_WAITLIST_ID;
 
 export default function WaitlistModal() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [joined, setJoined] = useState(false);
 
-  const opacity = !joined ? '0.5' : '0.6';
+  const opacity = !joined ? "0.5" : "0.6";
 
   const handlesubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch('https://api.getwaitlist.com/api/v1/waiter', {
-      method: 'POST',
+    fetch("https://api.getwaitlist.com/api/v1/waiter", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -52,7 +42,7 @@ export default function WaitlistModal() {
       if (res.ok) {
         setJoined(true);
       } else {
-        toast.error('Something went wrong');
+        toast.error("Something went wrong");
       }
     });
   };
@@ -61,7 +51,7 @@ export default function WaitlistModal() {
     <Dialog.Root
       onOpenChange={() => {
         joined && setJoined(false);
-        setEmail('');
+        setEmail("");
       }}
     >
       <Dialog.Trigger asChild>
@@ -76,7 +66,7 @@ export default function WaitlistModal() {
           style={{
             backgroundImage: `linear-gradient(140deg, rgba(28, 15, 89, ${opacity}) 50%, rgba(0, 107, 41, ${opacity}))`,
             backgroundColor: `rgba(15, 15, 15, ${opacity})`,
-            backdropFilter: 'blur(6px)',
+            backdropFilter: "blur(6px)",
           }}
         />
         <Dialog.Content className="fixed z-30 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  bg-[#050505] rounded-t-3xl p-12">

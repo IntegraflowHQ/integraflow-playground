@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@radix-ui/react-accordion";
+import { Logo } from "@/assets/Logo";
 
 type Props = {
   setLibrary: Dispatch<SetStateAction<LibrarySurvey[]>>;
@@ -59,8 +60,12 @@ export const HomeSidebar = ({
 
   return (
     <>
-      <h1 className="text-3xl p-6">Playground</h1>
       <div className="px-6 space-y-4">
+        <div className="my-6">
+          <a href="https://fancy-gaufre-f867e3.netlify.app/" target="_blank">
+            <Logo />
+          </a>
+        </div>
         <Accordion
           value={accordionValue}
           collapsible={true}
