@@ -155,15 +155,72 @@ export const TemplateSidebar = ({
           </span>
         </p>
         {showSettings && (
-          <>
-            <ul className="px-2 space-y-2">
-              <Popover.Root open={openTheme} onOpenChange={setOpenTheme}>
-                <Popover.Trigger
-                  className={` flex items-center space-x-6 rounded-md bg-[#eee] p-2`}
+          <ul className="px-2 space-y-2">
+            <Popover.Root open={openTheme} onOpenChange={setOpenTheme}>
+              <Popover.Trigger
+                className={` flex items-center space-x-6 rounded-md bg-[#eee] p-2`}
+              >
+                <span>Theme</span>
+                <span>
+                  {openTheme ? (
+                    <ChevronUp size={19} />
+                  ) : (
+                    <ChevronDown size={19} />
+                  )}
+                </span>
+              </Popover.Trigger>
+              <Popover.Anchor />
+              <Popover.Portal>
+                <Popover.Content
+                  align="start"
+                  className="shadow-lg border bg-[#fff] px-3 pt-0 "
                 >
-                  <span>Theme</span>
+                  <Popover.Close />
+                  <ul>
+                    {Object.keys(themeOptions || {}).map((optName) => {
+                      return (
+                        <li key={optName} className="flex mb-3 items-center">
+                          <span className="capitalize">
+                            {optName !== "progressBar"
+                              ? optName
+                              : "progress bar"}
+                            :
+                          </span>
+                          <span>
+                            <ColorPicker
+                              onChange={(color: string) => {
+                                setTheme(optName as ThemeOption, color);
+                              }}
+                              selectedColor={
+                                activeTemplate?.survey?.theme &&
+                                activeTemplate.survey.theme[
+                                  optName as keyof Theme
+                                ]!
+                                  ? activeTemplate.survey.theme[
+                                      optName as keyof Theme
+                                    ]!
+                                  : themeOptions[optName as keyof Theme]
+                              }
+                            />
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </Popover.Content>
+              </Popover.Portal>
+            </Popover.Root>
+            <li>
+              <Popover.Root
+                open={openPlacement}
+                onOpenChange={setOpenPlacement}
+              >
+                <Popover.Trigger
+                  className={` flex items-center space-x-6 rounded-md bg-[#eee] p-2 mb-1`}
+                >
+                  <span>Placement</span>
                   <span>
-                    {openTheme ? (
+                    {openPlacement ? (
                       <ChevronUp size={19} />
                     ) : (
                       <ChevronDown size={19} />
@@ -174,127 +231,68 @@ export const TemplateSidebar = ({
                 <Popover.Portal>
                   <Popover.Content
                     align="start"
-                    className="shadow-lg border bg-[#fff] px-3 pt-0 "
+                    className="shadow-lg border bg-[#fff] px-3 pt-0 w-[13rem]  "
                   >
                     <Popover.Close />
                     <ul>
-                      {Object.keys(themeOptions || {}).map((optName) => {
+                      {placementOptions.map((option) => {
                         return (
-                          <li key={optName} className="flex mb-3 items-center">
-                            <span className="capitalize">
-                              {optName !== "progressBar"
-                                ? optName
-                                : "progress bar"}
-                              :
-                            </span>
-                            <span>
-                              <ColorPicker
-                                onChange={(color: string) => {
-                                  setTheme(optName as ThemeOption, color);
-                                }}
-                                selectedColor={
-                                  activeTemplate?.survey?.theme &&
-                                  activeTemplate.survey.theme[
-                                    optName as keyof Theme
-                                  ]!
-                                    ? activeTemplate.survey.theme[
-                                        optName as keyof Theme
-                                      ]!
-                                    : themeOptions[optName as keyof Theme]
-                                }
-                              />
-                            </span>
-                          </li>
+                          <>
+                            <p
+                              key={option.id}
+                              onClick={() => {
+                                changePlacement(option.value);
+                              }}
+                              className="p-2 hover:bg-[#e2d8f8]"
+                            >
+                              {option.label}
+                            </p>
+                            <hr />
+                          </>
                         );
                       })}
                     </ul>
                   </Popover.Content>
                 </Popover.Portal>
               </Popover.Root>
-              <li>
-                <Popover.Root
-                  open={openPlacement}
-                  onOpenChange={setOpenPlacement}
-                >
-                  <Popover.Trigger
-                    className={` flex items-center space-x-6 rounded-md bg-[#eee] p-2 mb-1`}
-                  >
-                    <span>Placement</span>
-                    <span>
-                      {openPlacement ? (
-                        <ChevronUp size={19} />
-                      ) : (
-                        <ChevronDown size={19} />
-                      )}
-                    </span>
-                  </Popover.Trigger>
-                  <Popover.Anchor />
-                  <Popover.Portal>
-                    <Popover.Content
-                      align="start"
-                      className="shadow-lg border bg-[#fff] px-3 pt-0 w-[13rem]  "
-                    >
-                      <Popover.Close />
-                      <ul>
-                        {placementOptions.map((option) => {
-                          return (
-                            <>
-                              <p
-                                key={option.id}
-                                onClick={() => {
-                                  changePlacement(option.value);
-                                }}
-                                className="p-2 hover:bg-[#e2d8f8]"
-                              >
-                                {option.label}
-                              </p>
-                              <hr />
-                            </>
-                          );
-                        })}
-                      </ul>
-                    </Popover.Content>
-                  </Popover.Portal>
-                </Popover.Root>
-              </li>
-              <div className="space-x-1">
-                <label htmlFor="submit_text">Submit Text:</label>
-                <input
-                  type="text"
-                  name="submit_text"
-                  className="border p-1 focus:outline-none rounded-md focus:border-[#6841C6]"
-                  value={submitText}
-                  onChange={(e) => {
-                    setSubmitText(e.target.value);
-                    updateSubmitText(e.target.value);
-                  }}
-                  placeholder="Enter your text"
-                />
-              </div>
+            </li>
+            <div className="space-x-1">
+              <label htmlFor="submit_text">Submit Text:</label>
+              <input
+                type="text"
+                name="submit_text"
+                className="border p-1 focus:outline-none rounded-md focus:border-[#6841C6]"
+                value={submitText}
+                onChange={(e) => {
+                  setSubmitText(e.target.value);
+                  updateSubmitText(e.target.value);
+                }}
+                placeholder="Enter your text"
+              />
+            </div>
 
-              <ToggleSwitch
-                onChange={() => {
-                  setShowProgressBar(!showProgressBar);
-                  toggleProgressbar(!showProgressBar);
-                }}
-                text="Show Progress Bar"
-              />
-              <ToggleSwitch
-                onChange={() => {
-                  setShowBranding(!showBranding);
-                  toggleBranding(!showBranding);
-                }}
-                text="Show Branding"
-              />
-              <ToggleSwitch
-                onChange={() => {
-                  setShowClose(!showClose);
-                  toggleClose(!showClose);
-                }}
-                text="Show Close"
-              />
-            </ul>
-          </>
+            <ToggleSwitch
+              onChange={() => {
+                setShowProgressBar(!showProgressBar);
+                toggleProgressbar(!showProgressBar);
+              }}
+              text="Show Progress Bar"
+            />
+            <ToggleSwitch
+              onChange={() => {
+                setShowBranding(!showBranding);
+                toggleBranding(!showBranding);
+              }}
+              text="Show Branding"
+            />
+            <ToggleSwitch
+              onChange={() => {
+                setShowClose(!showClose);
+                toggleClose(!showClose);
+              }}
+              text="Show Close"
+            />
+          </ul>
         )}
       </div>
     </div>

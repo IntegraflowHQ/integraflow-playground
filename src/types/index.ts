@@ -30,19 +30,6 @@ export type ThemeOption =
   | "background"
   | "progressBar";
 
-type Objective =
-  | "increase_user_adoption"
-  | "increase_conversion"
-  | "support_sales"
-  | "sharpen_marketing_messaging"
-  | "improve_user_retention"
-  | "other";
-
-export interface FilterOptions {
-  category?: string;
-  subcategory?: string | string[];
-}
-
 export interface Template {
   name: string;
   description: string;

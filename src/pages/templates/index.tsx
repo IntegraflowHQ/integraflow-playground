@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, createRef, useState } from "react";
+import React, { useEffect, createRef, useState } from "react";
 import { TemplateSidebar } from "@/components/TemplateSidebar";
 import { Wrapper } from "@/components/Wrapper";
 import { Sidebar } from "@/components/Sidebar";

@@ -1,9 +1,8 @@
-"use client";
 import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Discord2, Instagram, LinkedIn, Twitter } from "../assets";
+import { LinkedIn, Twitter } from "../assets";
 
 const socialLinks = [
   {

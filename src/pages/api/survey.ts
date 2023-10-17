@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { surveyCategories } from "@/utils/surveyCategories";
 import { surveyTemplates } from "@/utils/surveyTemplates";
 import type { NextApiRequest, NextApiResponse } from "next";
 

@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/display-name
 import React, { Ref, forwardRef } from "react";
 
 export const Wrapper = forwardRef((_, ref: Ref<HTMLIFrameElement>) => {
