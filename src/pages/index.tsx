@@ -14,7 +14,6 @@ export default function Home() {
   );
 
   const [width, setWidth] = useState<number>(1024);
-  const isMobile = width <= 1024;
 
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
@@ -31,7 +30,7 @@ export default function Home() {
     };
   }, []);
 
-  if (isMobile)
+  if (width < 1024)
     return (
       <div className="w-full h-full flex justify-center items-center align-middle px-8">
         <div>
