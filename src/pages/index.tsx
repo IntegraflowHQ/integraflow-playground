@@ -13,7 +13,7 @@ export default function Home() {
     "all categories"
   );
 
-  const [width, setWidth] = useState<number>();
+  const [width, setWidth] = useState<number>(1024);
   const isMobile = width <= 1024;
 
   function handleWindowSizeChange() {
