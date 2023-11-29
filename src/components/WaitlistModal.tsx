@@ -2,18 +2,24 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { LinkedIn, Twitter } from "../assets";
+import { Discord2, LinkedIn, Twitter } from "../assets";
+import { Url } from "next/dist/shared/lib/router/router";
 
 const socialLinks = [
   {
     name: "Twitter",
-    url: "https://twitter.com/useintegraflow",
+    url: process.env.NEXT_PUBLIC_TWITTER_URL,
     icon: Twitter,
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/company/useintegraflow",
+    url: process.env.NEXT_PUBLIC_LINKEDIN_URL,
     icon: LinkedIn,
+  },
+  {
+    name: "Discord",
+    url: process.env.NEXT_PUBLIC_DISCORD_URL,
+    icon: Discord2,
   },
 ];
 
@@ -57,7 +63,6 @@ export default function WaitlistModal() {
         <button className="border-[#6841C6] text-[#6841C6] hover:text-[#5a37ac] hover:border-[#5a37ac] border-2 w-full text-center  p-2 rounded-md">
           Join waitlist
         </button>
-        {/* <Button {...buttonProps} /> */}
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay
@@ -131,11 +136,13 @@ export default function WaitlistModal() {
               </header>
 
               <div className="grid grid-cols-2 gap-3 p-8">
-                {socialLinks.map(({ name, icon: Icon, url }) => (
+                {socialLinks.map(({ name, icon: Icon, url }, index) => (
                   <Link
-                    href={url}
+                    href={url as Url}
                     target="_blank"
-                    className="flex items-center gap-4 p-6 bg-[#131313] rounded-full w-[206px]"
+                    className={`${
+                      index === 2 ? "col-span-2 mx-auto" : ""
+                    } flex items-center gap-4 p-6 bg-[#131313] rounded-full w-[206px]`}
                     key={name}
                   >
                     <Icon />
