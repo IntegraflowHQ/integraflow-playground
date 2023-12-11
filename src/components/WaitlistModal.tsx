@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Discord2, LinkedIn, Twitter } from "../assets";
-import { Url } from "next/dist/shared/lib/router/router";
 
 const socialLinks = [
   {
@@ -138,7 +137,7 @@ export default function WaitlistModal() {
               <div className="grid grid-cols-2 gap-3 p-8">
                 {socialLinks.map(({ name, icon: Icon, url }, index) => (
                   <Link
-                    href={url as Url}
+                    href={url}
                     target="_blank"
                     className={`${
                       index === 2 ? "col-span-2 mx-auto" : ""
